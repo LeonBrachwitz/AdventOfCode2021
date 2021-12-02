@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main
 {
-	private static List<String> instructions = new FileReader().readFile("/tag02/input.csv");
+	private static final List<String> instructions = new FileReader().readFile("/tag02/input.csv");
 
 	public static void main(String[] args)
 	{
@@ -18,11 +18,11 @@ public class Main
 
 	private static void solvePartOne()
 	{
-		System.out.printf("%s", new Controller().computeFinalPosition(instructions));
+		System.out.println(String.format("Final position is: %s", new Controller().computeFinalPosition(instructions)));
 	}
 
 	private static void solvePartTwo()
 	{
-		System.out.printf("TODO", new Controller());
+		System.out.println(String.format("Final position of part 2 is: %s", new Controller().computeFinalPositionPart2(instructions)));
 	}
 }

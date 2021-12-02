@@ -5,25 +5,55 @@ import java.util.List;
 public class Controller
 {
 
-	protected Integer computeFinalPosition(List<String> instructions)
+	protected Integer computeFinalPositionPart2(List<String> instructions)
+	{
+		var horizontalPosition = 0;
+		var depth = 0;
+		var aim = 0;
+
+		for (String instruction : instructions)
+		{
+			var value = instruction.charAt(instruction.length() - 1) - '0';
+			var firstChar = instruction.charAt(0);
+			if (firstChar == 'f')
+			{
+				horizontalPosition += value;
+				depth += value * aim;
+			}
+			else
+				if (firstChar == 'd')
+				{
+					aim += value;
+				}
+				else
+					if (firstChar == 'u')
+					{
+						aim -= value;
+					}
+		}
+		return horizontalPosition * depth;
+	}
+
+	protected Integer computeFinalPosition(final List<String> instructions)
 	{
 		var horizontalPosition = 0;
 		var depth = 0;
 
-		for (int i = 0; i < instructions.size(); i++)
+		for (String instruction : instructions)
 		{
-			var value = instructions.get(i).charAt(instructions.get(i).length() - 1) - '0';
-			if (instructions.get(i).charAt(0) == 'f')
+			var value = instruction.charAt(instruction.length() - 1) - '0';
+			var firstChar = instruction.charAt(0);
+			if (firstChar == 'f')
 			{
 				horizontalPosition += value;
 			}
 			else
-				if (instructions.get(i).charAt(0) == 'd')
+				if (firstChar == 'd')
 				{
 					depth += value;
 				}
 				else
-					if (instructions.get(i).charAt(0) == 'u')
+					if (firstChar == 'u')
 					{
 						depth -= value;
 					}
