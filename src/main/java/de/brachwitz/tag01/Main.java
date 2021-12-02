@@ -22,6 +22,6 @@ public class Main
 
     private static void solvePartTwo()
     {
-        System.out.printf("The three-measurement value increases %s times.%n", new DepthDetector().detectThreeMeasurmentIncrease(measurements));
+        System.out.printf("The three-measurement value increases %s times.%n", new DepthDetector().detectThreeMeasurementIncrease(measurements));
     }
 }
